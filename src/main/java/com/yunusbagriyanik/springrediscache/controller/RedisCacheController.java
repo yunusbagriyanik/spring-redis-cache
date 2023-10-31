@@ -6,10 +6,7 @@ import com.yunusbagriyanik.springrediscache.service.RedisCacheService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +21,10 @@ public class RedisCacheController {
     @GetMapping("/users")
     public ResponseEntity<List<User>> getUsersByMembership(@RequestParam("membership") Membership membership) {
         return ResponseEntity.ok(redisCacheService.findUsersByMembershipLevel(membership));
+    }
+
+    @GetMapping("/save")
+    public ResponseEntity<User> saveUser(@RequestBody User user) {
+        return ResponseEntity.ok(redisCacheService.saveUser(user));
     }
 }
