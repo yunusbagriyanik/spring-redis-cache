@@ -15,7 +15,7 @@ public class RedisConfiguration {
     @Bean
     public RedisCacheManagerBuilderCustomizer redisCacheManagerBuilderCustomizer() {
         return (builder) -> builder
-                .withCacheConfiguration("GET_USERS_API_CACHE",
+                .withCacheConfiguration("findUsersByMembershipLevel_CACHE",
                         RedisCacheConfiguration
                                 .defaultCacheConfig()
                                 .disableKeyPrefix()
