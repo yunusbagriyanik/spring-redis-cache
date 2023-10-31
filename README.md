@@ -11,6 +11,8 @@
 ### Run Redis
 
     $ docker-compose up -d
+    $ docker exec -it container_id redis-cli
+    $ docker exec -it container_id redis-cli FLUSHALL # Clear all keys
 
 ![Redis Image](src/main/resources/redis.png)
 
