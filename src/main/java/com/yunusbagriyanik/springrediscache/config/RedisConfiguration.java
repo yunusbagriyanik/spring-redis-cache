@@ -19,6 +19,11 @@ public class RedisConfiguration {
                         RedisCacheConfiguration
                                 .defaultCacheConfig()
                                 .disableKeyPrefix()
+                                .entryTtl(Duration.ofMinutes(1)))
+                .withCacheConfiguration("findUsers_CACHE",
+                        RedisCacheConfiguration
+                                .defaultCacheConfig()
+                                .disableKeyPrefix()
                                 .entryTtl(Duration.ofMinutes(1)));
     }
 }

@@ -23,8 +23,13 @@ public class RedisCacheController {
         return ResponseEntity.ok(redisCacheService.findUsersByMembershipLevel(membership));
     }
 
-    @GetMapping("/save")
+    @PostMapping("/save")
     public ResponseEntity<User> saveUser(@RequestBody User user) {
         return ResponseEntity.ok(redisCacheService.saveUser(user));
+    }
+
+    @GetMapping("/users/all")
+    public ResponseEntity<List<User>> getUsers() {
+        return ResponseEntity.ok(redisCacheService.findUsers());
     }
 }

@@ -24,4 +24,9 @@ public class RedisCacheService {
     public User saveUser(User user) {
         return userRepository.save(user);
     }
+
+    @Cacheable(value = "findUsers_CACHE", key = "'cacheKey_' + 'ALL_USERS'")
+    public List<User> findUsers() {
+        return userRepository.findAll();
+    }
 }
